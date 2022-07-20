@@ -15,20 +15,30 @@ class Sol extends StatefulWidget {
   State<Sol> createState() => _SolState();
 }
 
-class _SolState extends State<Sol> with SingleTickerProviderStateMixin {
-  late final AnimationController controlador;
+class _SolState extends State<Sol> with TickerProviderStateMixin {
+  late final AnimationController controladorNascimento;
+  late final AnimationController controladorDia;
 
   @override
   void initState() {
-    controlador = AnimationController(vsync: this, duration: widget.duracao)
-      ..addListener(() => setState(() {}));
     super.initState();
-    controlador.forward();
+    // controladorDia = AnimationController(vsync: this, duration: widget.duracao)
+    //   ..addListener(() => setState(() {}));
+    controladorNascimento =
+            AnimationController(vsync: this, duration: widget.duracao)
+              ..addListener(() => setState(() {}))
+        // ..addStatusListener((status) {
+        //   if (status == AnimationStatus.completed) {
+        //     controladorDia.forward();
+        //   }
+        // })
+        ;
+    controladorNascimento.forward();
   }
 
   @override
   void dispose() {
-    controlador.dispose();
+    controladorNascimento.dispose();
     super.dispose();
   }
 
@@ -36,9 +46,10 @@ class _SolState extends State<Sol> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment(
-        .65,
+        .65 -
+            controladorDia.value * 1.25, //- controladorNascimento.value * 0.45,
         // -1 esquerda -- direita 1
-        .75 - 1.5 * controlador.value,
+        .75 - 1.5 * controladorNascimento.value,
         // -1 cima -- baixo 1
       ),
       child: _sol1(_cor),
@@ -48,7 +59,7 @@ class _SolState extends State<Sol> with SingleTickerProviderStateMixin {
   Color get _cor => Color.lerp(
         widget.corInicial,
         widget.corFinal,
-        controlador.value,
+        controladorNascimento.value,
       )!;
   Widget _sol1(final Color color) => DecoratedBox(
         decoration: BoxDecoration(

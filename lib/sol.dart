@@ -22,17 +22,10 @@ class _SolState extends State<Sol> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    // controladorDia = AnimationController(vsync: this, duration: widget.duracao)
-    //   ..addListener(() => setState(() {}));
+
     controladorNascimento =
-            AnimationController(vsync: this, duration: widget.duracao)
-              ..addListener(() => setState(() {}))
-        // ..addStatusListener((status) {
-        //   if (status == AnimationStatus.completed) {
-        //     controladorDia.forward();
-        //   }
-        // })
-        ;
+        AnimationController(vsync: this, duration: widget.duracao)
+          ..addListener(() => setState(() {}));
     controladorNascimento.forward();
   }
 
@@ -46,11 +39,8 @@ class _SolState extends State<Sol> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment(
-        .65 -
-            controladorDia.value * 1.25, //- controladorNascimento.value * 0.45,
-        // -1 esquerda -- direita 1
+        .65,
         .75 - 1.5 * controladorNascimento.value,
-        // -1 cima -- baixo 1
       ),
       child: _sol1(_cor),
     );
@@ -74,5 +64,4 @@ class _SolState extends State<Sol> with TickerProviderStateMixin {
           ],
         ),
       );
-  Widget _sol2(final Color color) => Icon(Icons.sunny, color: color, size: 64);
 }

@@ -59,7 +59,10 @@ class _NuvensState extends State<Nuvens> with SingleTickerProviderStateMixin {
     final screenHeight = MediaQuery.of(context).size.height;
     final passo = (screenHeight / widget.nNuvens) / screenHeight;
     for (int i = 0; i < widget.nNuvens; i++) {
-      coordenadas!.add({'y': (-i * passo) + .1});
+      coordenadas!.add({
+        'y': (-i * passo) + .1,
+        'dx': (2 * random.nextDouble()),
+      });
     }
   }
 
@@ -73,8 +76,8 @@ class _NuvensState extends State<Nuvens> with SingleTickerProviderStateMixin {
         for (int i = 0; i < coordenadas!.length; i++)
           () {
             final coord = coordenadas![i];
-            final dx = i * (2 / widget.nNuvens);
-            double posX = 1 - 2 * controlador.value - dx;
+
+            double posX = 1 - 2 * controlador.value - coord['dx']!;
             posX += (posX <= -1) ? 2 : 0;
             return Visibility(
               visible: visivel,

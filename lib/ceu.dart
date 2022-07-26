@@ -34,11 +34,9 @@ class _CeuState extends State<Ceu> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: DecoratedBox(
-        decoration: BoxDecoration(color: _cor),
-        child: const Center(),
-      ),
+    return DecoratedBox(
+      decoration: BoxDecoration(color: _cor),
+      child: const Center(),
     );
   }
 

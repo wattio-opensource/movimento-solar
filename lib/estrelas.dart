@@ -26,7 +26,7 @@ class _EstrelasState extends State<Estrelas>
   @override
   void initState() {
     controlador = AnimationController(vsync: this, duration: widget.duracao)
-      ..addListener(() {});
+      ..addListener(() => setState(() {}));
     super.initState();
     geradorDeEstrelas();
     controlador.forward();

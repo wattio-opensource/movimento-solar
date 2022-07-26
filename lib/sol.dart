@@ -15,20 +15,23 @@ class Sol extends StatefulWidget {
   State<Sol> createState() => _SolState();
 }
 
-class _SolState extends State<Sol> with SingleTickerProviderStateMixin {
-  late final AnimationController controlador;
+class _SolState extends State<Sol> with TickerProviderStateMixin {
+  late final AnimationController controladorNascimento;
+  late final AnimationController controladorDia;
 
   @override
   void initState() {
-    controlador = AnimationController(vsync: this, duration: widget.duracao)
-      ..addListener(() => setState(() {}));
     super.initState();
-    controlador.forward();
+
+    controladorNascimento =
+        AnimationController(vsync: this, duration: widget.duracao)
+          ..addListener(() => setState(() {}));
+    controladorNascimento.forward();
   }
 
   @override
   void dispose() {
-    controlador.dispose();
+    controladorNascimento.dispose();
     super.dispose();
   }
 
@@ -37,9 +40,7 @@ class _SolState extends State<Sol> with SingleTickerProviderStateMixin {
     return Align(
       alignment: Alignment(
         .65,
-        // -1 esquerda -- direita 1
-        .75 - 1.5 * controlador.value,
-        // -1 cima -- baixo 1
+        .75 - 1.5 * controladorNascimento.value,
       ),
       child: _sol1(_cor),
     );
@@ -48,7 +49,7 @@ class _SolState extends State<Sol> with SingleTickerProviderStateMixin {
   Color get _cor => Color.lerp(
         widget.corInicial,
         widget.corFinal,
-        controlador.value,
+        controladorNascimento.value,
       )!;
   Widget _sol1(final Color color) => DecoratedBox(
         decoration: BoxDecoration(
@@ -63,5 +64,4 @@ class _SolState extends State<Sol> with SingleTickerProviderStateMixin {
           ],
         ),
       );
-  Widget _sol2(final Color color) => Icon(Icons.sunny, color: color, size: 64);
 }

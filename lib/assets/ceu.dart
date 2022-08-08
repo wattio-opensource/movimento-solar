@@ -32,7 +32,7 @@ class _CeuState extends State<Ceu> {
         setState(() => completou = true);
       }
     });
-    // coordenadas das estrelas
+    // lógica interna para controlar o mudança de cor do céu
     final rand = Random();
     for (int i = 0; i < widget.nEstrelas; i++) {
       coordenadas.add({
@@ -40,6 +40,7 @@ class _CeuState extends State<Ceu> {
         'y': -1 + rand.nextDouble() * 2,
       });
     }
+    // coordenadas das estrelas
     super.initState();
   }
 
@@ -47,6 +48,7 @@ class _CeuState extends State<Ceu> {
   Widget build(BuildContext context) {
     final nEstrelas =
         (completou ? 0 : (1 - widget.controlador.value)) * widget.nEstrelas;
+    // lógica para estrelas irem desaparecendo
     return DecoratedBox(
       decoration: BoxDecoration(color: _cor),
       child: Stack(
@@ -73,4 +75,5 @@ class _CeuState extends State<Ceu> {
         widget.corFinal,
         completou ? 1 : widget.controlador.value,
       )!;
+  // interpolação linear entre as cores
 }

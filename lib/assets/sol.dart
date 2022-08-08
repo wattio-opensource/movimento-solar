@@ -24,6 +24,7 @@ class _SolState extends State<Sol> {
         setState(() => completou = true);
       }
     });
+    // lógica interna para controlar o mudança de cor do sol
     super.initState();
   }
 
@@ -51,4 +52,5 @@ class _SolState extends State<Sol> {
       completou ? 1 : widget.controlador.value,
     )!;
   }
+  // interpolação linear entre as cores
 }

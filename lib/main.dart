@@ -57,7 +57,9 @@ class _PaginaInicialState extends State<PaginaInicial>
     // distribuição de espaços dos pássaros
     for (int i = 0; i < nPassaros; i++) {
       passarosOffsetY.add(0.4 * rand.nextDouble());
+      // valor entre 0 e 0.4
       passarosOffsetX.add(0.5 * rand.nextDouble());
+      // valor entre 0 e 0.5
     }
 
     // distribuição de espaços das nuvens
@@ -132,7 +134,9 @@ class _PaginaInicialState extends State<PaginaInicial>
             visible: amanheceu,
             child: Movimento(
               posX: (valor) => valor + passarosOffsetX[i],
+              // espalha os pássaros no eixo X
               posY: (valor) => 0.4 + passarosOffsetY[i],
+              // espalha os pássaros no eixo Y, com o mais baixo em 40% da altura
               repetir: true,
               controlador: controlador6s,
               child: const Passaro(),
@@ -147,7 +151,9 @@ class _PaginaInicialState extends State<PaginaInicial>
             visible: amanheceu,
             child: Movimento(
               posX: (valor) => valor + nuvensOffsetX[i],
+              // espalha as nuvens no eixo X
               posY: (valor) => 0.5 + nuvensOffsetY[i],
+              // espalha as nuvens no eixo Y, com a mais baixa em 50% da altura
               repetir: true,
               controlador: controlador12s,
               child: const Nuvem(),

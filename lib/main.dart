@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Movimento Solar',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.black12,
@@ -53,8 +54,7 @@ class _PaginaInicialState extends State<PaginaInicial>
   @override
   void initState() {
     final rand = Random();
-
-    // distribuição de espaços dos pássaros
+    // distribuição de offsets de espaçamento dos pássaros
     for (int i = 0; i < nPassaros; i++) {
       passarosOffsetY.add(0.4 * rand.nextDouble());
       // valor entre 0 e 0.4
@@ -115,7 +115,7 @@ class _PaginaInicialState extends State<PaginaInicial>
     );
   }
 
-  Movimento sol() {
+  Widget sol() {
     // sol possui movimento em Y, X é estático
     return Movimento(
       repetir: false,
@@ -128,15 +128,19 @@ class _PaginaInicialState extends State<PaginaInicial>
 
   List<Widget> passaros() => [
         for (int i = 0; i < nPassaros; i++)
-          // passaros se movimentam linearmente em X com um offset de espaçamento
-          // passaros tem o Y fixo, cada um com um offset
+          // passaros se movimentam linearmente em X,
+          // com um offset de espaçamento horizontal para cada um
+          // passaros tem o Y fixo,
+          // cada um com um offset de espaçamento vertical
           Visibility(
             visible: amanheceu,
             child: Movimento(
               posX: (valor) => valor + passarosOffsetX[i],
-              // espalha os pássaros no eixo X
+              // valor é o que vem do controlador, que varia de 0 a 1;
               posY: (valor) => 0.4 + passarosOffsetY[i],
-              // espalha os pássaros no eixo Y, com o mais baixo em 40% da altura
+              // espalha os pássaros no eixo Y,
+              // com o mais baixo em 40% da altura
+              // e cada um com seu offset de altura;
               repetir: true,
               controlador: controlador6s,
               child: const Passaro(),
@@ -145,15 +149,11 @@ class _PaginaInicialState extends State<PaginaInicial>
       ];
   List<Widget> nuvens() => [
         for (int i = 0; i < nNuvens; i++)
-          // nuvens se movimentam linearmente em X com um offset de espaçamento
-          // nuvens tem o Y fixo, cada um com um offset
           Visibility(
             visible: amanheceu,
             child: Movimento(
               posX: (valor) => valor + nuvensOffsetX[i],
-              // espalha as nuvens no eixo X
               posY: (valor) => 0.5 + nuvensOffsetY[i],
-              // espalha as nuvens no eixo Y, com a mais baixa em 50% da altura
               repetir: true,
               controlador: controlador12s,
               child: const Nuvem(),

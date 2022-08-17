@@ -1,16 +1,17 @@
 # movimento_solar
 
-A new Flutter project.
+Um projeto open-source para o exercício das nossas habilidades de programação!
 
-## Getting Started
+## Primeira Versão
 
-This project is a starting point for a Flutter application.
+Este código contempla a criação de uma abstração para objetos em movimento no plano xy da tela, e utiliza principalmente do widget Align, TickerProviders e AnimationControllers para fazer isso acontecer.
+Há o nascer do sol e o surgimento de pássaros e nuvens.
 
-A few resources to get you started if this is your first Flutter project:
+## Sugestões de exercício
+- Fazer o ciclo diurno completo, com pôr do sol, lua, e a repetição.
+  -> isso abre espaço para o desenvolvimento de estações climáticas
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Criar o terreno, para que animais terrestres e estruturas também possam dar as caras
+  -> isso abre espaço para outros ecossistemas, bem como simulações de estruturas físicas, como sistemas solares e tal
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Qualquer outra coisa que venha à sua mente.

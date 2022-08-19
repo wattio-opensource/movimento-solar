@@ -12,6 +12,6 @@ Há o nascer do sol e o surgimento de pássaros e nuvens.
   -> isso abre espaço para o desenvolvimento de estações climáticas
 
 - Criar o terreno, para que animais terrestres e estruturas também possam dar as caras
-  -> isso abre espaço para outros ecossistemas, bem como simulações de estruturas físicas, como sistemas solares e tal
+  -> isso abre espaço para outros ecossistemas, bem como simulações de estruturas físicas, como usinas solares e tal
 
 - Qualquer outra coisa que venha à sua mente.

@@ -44,8 +44,8 @@ class _PaginaInicialState extends State<PaginaInicial>
     duration: const Duration(seconds: 12),
     vsync: this,
   );
-  final int nPassaros = 8;
-  final int nNuvens = 5;
+  late final int nPassaros;
+  late final int nNuvens;
   final List<double> passarosOffsetY = [];
   final List<double> passarosOffsetX = [];
   final List<double> nuvensOffsetY = [];
@@ -54,6 +54,7 @@ class _PaginaInicialState extends State<PaginaInicial>
   @override
   void initState() {
     final rand = Random();
+    randomBirdsAndClouds();
     // distribuição de offsets de espaçamento dos pássaros
     for (int i = 0; i < nPassaros; i++) {
       passarosOffsetY.add(0.4 * rand.nextDouble());
@@ -113,6 +114,12 @@ class _PaginaInicialState extends State<PaginaInicial>
         ],
       ),
     );
+  }
+
+  void randomBirdsAndClouds() {
+    final rand = Random();
+    nPassaros = (3 + rand.nextInt(17));
+    nNuvens = (2 + rand.nextInt(8));
   }
 
   Widget sol() {

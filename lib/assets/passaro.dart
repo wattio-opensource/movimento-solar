@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Passaro extends StatelessWidget {
   final double altura;
-  const Passaro({this.altura = 86, Key? key}) : super(key: key);
+  const Passaro({this.altura = 86, super.key});
 
   @override
   Widget build(BuildContext context) {

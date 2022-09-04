@@ -15,8 +15,8 @@ class Ceu extends StatefulWidget {
     this.corDaEstrela = Colors.white,
     this.nEstrelas = 36,
     required this.controlador,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<Ceu> createState() => _CeuState();

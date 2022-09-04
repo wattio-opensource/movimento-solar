@@ -4,10 +4,10 @@ class Nuvem extends StatelessWidget {
   final double altura;
   final Color cor;
   const Nuvem({
-    Key? key,
+    super.key,
     this.altura = 98,
     this.cor = const Color(0xff999999),
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

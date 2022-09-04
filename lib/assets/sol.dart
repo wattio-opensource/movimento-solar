@@ -8,8 +8,8 @@ class Sol extends StatefulWidget {
     this.corInicial = const Color(0xffe65100),
     this.corFinal = Colors.yellow,
     required this.controlador,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<Sol> createState() => _SolState();

@@ -16,8 +16,8 @@ class Movimento extends StatefulWidget {
     required this.child,
     required this.controlador,
     this.repetir = false,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<Movimento> createState() => _MovimentoState();
